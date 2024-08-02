@@ -14,10 +14,10 @@ fi
 
 [ -f configure ] || ./autogen.sh
 
-# mkdir -p _build$ndk_suffix
-# cd _build$ndk_suffix
+mkdir -p _build$ndk_suffix
+cd _build$ndk_suffix
 
-./configure \
+../configure \
 	CFLAGS=-fPIC CXXFLAGS=-fPIC \
 	--host=$ndk_triple \
 	--with-pic \
