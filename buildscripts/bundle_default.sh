@@ -51,7 +51,8 @@ fi
 
 flutter pub get
 
-cp -a ../../mpv/libmpv/* src/include/
+ls -la ../../mpv/
+cp -a ../../mpv/libmpv/ src/include/
 
 cd example
 
