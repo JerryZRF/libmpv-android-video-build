@@ -12,20 +12,20 @@ else
 	exit 255
 fi
 
-[ -f configure ] || ./autogen.sh \
+[ -f configure ] || ./autogen.sh
+
+mkdir -p _build$ndk_suffix
+cd _build$ndk_suffix
+
+../configure \
     CFLAGS=-fPIC CXXFLAGS=-fPIC \
-    --host=$ndk_triple \
+	--host=$ndk_triple \
     --disable-shared \
     --enable-static \
     --with-minimum \
     --with-threads \
     --with-tree \
-    --without-lzma \
+    --without-lzma
 
-mkdir -p _build$ndk_suffix
-cd _build$ndk_suffix
-
-../configure
-
-make -j$cores ..
+make -j$cores
 make DESTDIR="$prefix_dir" install
