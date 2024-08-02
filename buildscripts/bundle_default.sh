@@ -45,10 +45,6 @@ cd ../media-kit/media_kit_native_event_loop
 
 flutter create --org com.alexmercerind --template plugin_ffi --platforms=android .
 
-if ! grep -q android "pubspec.yaml"; then
-  printf "      android:\n        ffiPlugin: true\n" >> pubspec.yaml
-fi
-
 flutter pub get
 
 ls -la ../../mpv/
