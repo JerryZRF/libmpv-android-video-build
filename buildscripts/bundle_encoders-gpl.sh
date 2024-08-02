@@ -11,7 +11,7 @@ if [ -d prefix ]; then
 fi
 
 ./download.sh
-./patch-encoders-gpl.sh
+# ./patch-encoders-gpl.sh
 
 # --------------------------------------------------
 

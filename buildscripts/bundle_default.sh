@@ -8,7 +8,7 @@ if [ ! -f "prefix" ]; then
 fi
 
 ./download.sh
-./patch.sh
+# ./patch.sh
 
 # --------------------------------------------------
 
