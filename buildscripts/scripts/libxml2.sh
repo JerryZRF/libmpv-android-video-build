@@ -13,6 +13,7 @@ else
 fi
 
 [ -f configure ] || ./autogen.sh \
+    CFLAGS=-fPIC CXXFLAGS=-fPIC \
     --host=$ndk_triple \
     --disable-shared \
     --enable-static \
@@ -24,8 +25,6 @@ fi
 mkdir -p _build$ndk_suffix
 cd _build$ndk_suffix
 
-echo building..........
-
 CFLAGS=-fPIC CXXFLAGS=-fPIC ../configure \
 	--host=$ndk_triple \
     --disable-shared \
@@ -34,6 +33,8 @@ CFLAGS=-fPIC CXXFLAGS=-fPIC ../configure \
     --with-threads \
     --with-tree \
     --without-lzma \
+
+make distclean
 
 make -j$cores
 make DESTDIR="$prefix_dir" install
