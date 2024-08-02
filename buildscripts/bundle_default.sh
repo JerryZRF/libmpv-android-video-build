@@ -1,6 +1,6 @@
 # --------------------------------------------------
 
-root_dir=$(pwd)
+root_dir=$(pwd)/..
 
 if [ ! -f "deps" ]; then
   sudo rm -r deps
@@ -75,8 +75,6 @@ zip -r "default-arm64-v8a.jar"                lib/arm64-v8a
 mkdir -p "$root_dir/output"
 
 cp *.jar "$root_dir/output"
-
-pwd  "$root_dir/output"
 
 # md5sum *.jar
 
