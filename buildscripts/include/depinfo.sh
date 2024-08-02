@@ -18,6 +18,7 @@ v_ffmpeg=7.0
 v_libogg=1.3.5
 v_libvorbis=1.3.7
 v_libvpx=1.13
+v_libplacebo=7.349.0
 
 
 ## Dependency tree
@@ -38,7 +39,7 @@ dep_libass=(freetype fribidi harfbuzz)
 dep_lua=()
 dep_shaderc=()
 if [ -n "$ENCODERS_GPL" ]; then
-	dep_mpv=(ffmpeg libass fftools_ffi)
+	dep_mpv=(ffmpeg libass fftools_ffi libplacebo)
 else
-	dep_mpv=(ffmpeg libass)
+	dep_mpv=(ffmpeg libass libplacebo)
 fi
