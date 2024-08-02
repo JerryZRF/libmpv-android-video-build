@@ -17,6 +17,7 @@ fi
 mkdir -p _build$ndk_suffix
 cd _build$ndk_suffix
 
+echo building..........
 CFLAGS=-fPIC CXXFLAGS=-fPIC ../configure \
 	--host=$ndk_triple \
 	--with-pic \
