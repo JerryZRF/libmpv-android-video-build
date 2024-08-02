@@ -25,15 +25,6 @@ fi
 mkdir -p _build$ndk_suffix
 cd _build$ndk_suffix
 
-CFLAGS=-fPIC CXXFLAGS=-fPIC ../configure \
-	--host=$ndk_triple \
-    --disable-shared \
-    --enable-static \
-    --with-minimum \
-    --with-threads \
-    --with-tree \
-    --without-lzma \
-
 make distclean
 
 make -j$cores

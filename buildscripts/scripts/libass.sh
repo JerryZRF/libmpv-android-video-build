@@ -12,19 +12,17 @@ else
 	exit 255
 fi
 
-[ -f configure ] || ./autogen.sh
-
-mkdir -p _build$ndk_suffix
-cd _build$ndk_suffix
-
-echo building..........
-CFLAGS=-fPIC CXXFLAGS=-fPIC ../configure \
+[ -f configure ] || ./autogen.sh \
+	CFLAGS=-fPIC CXXFLAGS=-fPIC \
 	--host=$ndk_triple \
 	--with-pic \
 	--disable-asm \
 	--enable-static\
 	--disable-shared \
 	--disable-require-system-font-provider
+
+mkdir -p _build$ndk_suffix
+cd _build$ndk_suffix
 
 make -j$cores
 make DESTDIR="$prefix_dir" install
