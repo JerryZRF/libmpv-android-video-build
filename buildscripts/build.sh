@@ -6,7 +6,7 @@ cd "$( dirname "${BASH_SOURCE[0]}" )"
 cleanbuild=0
 nodeps=0
 target=mpv
-archs=(arm64)
+archs=(armv7l arm64 x86 x86_64)
 
 getdeps () {
 	varname="dep_${1//-/_}[*]"
@@ -83,7 +83,7 @@ c = '$CC'
 cpp = '$CXX'
 ar = '$AR'
 strip = '$ndk_triple-strip'
-pkg-config = 'pkg-config'
+pkgconfig = 'pkg-config'
 [host_machine]
 system = 'android'
 cpu_family = '$cpu_family'
