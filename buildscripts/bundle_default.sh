@@ -37,11 +37,9 @@ ln -sf "$(pwd)/app/build/outputs/apk/release/lib/arm64-v8a/libmediakitandroidhel
 # ln -sf "$(pwd)/app/build/outputs/apk/release/lib/x86/libmediakitandroidhelper.so" "../../../libmpv/src/main/jniLibs/x86"
 # ln -sf "$(pwd)/app/build/outputs/apk/release/lib/x86_64/libmediakitandroidhelper.so" "../../../libmpv/src/main/jniLibs/x86_64"
 
-cd ../..
-
 # --------------------------------------------------
 
-cd deps/media_kit/media_kit_native_event_loop
+cd ../media_kit/media_kit_native_event_loop
 
 flutter create --org com.alexmercerind --template plugin_ffi --platforms=android .
 
