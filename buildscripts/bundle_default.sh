@@ -39,7 +39,9 @@ ln -sf "$(pwd)/app/build/outputs/apk/release/lib/arm64-v8a/libmediakitandroidhel
 
 # --------------------------------------------------
 
-cd ../media_kit/media_kit_native_event_loop
+pwd
+
+cd ../media-kit/media_kit_native_event_loop
 
 flutter create --org com.alexmercerind --template plugin_ffi --platforms=android .
 
