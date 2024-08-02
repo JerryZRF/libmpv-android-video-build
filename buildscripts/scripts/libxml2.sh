@@ -17,8 +17,7 @@ fi
 mkdir -p _build$ndk_suffix
 cd _build$ndk_suffix
 
-../configure \
-    CFLAGS=-fPIC CXXFLAGS=-fPIC \
+CFLAGS=-fPIC CXXFLAGS=-fPIC ../configure \
 	--host=$ndk_triple \
     --disable-shared \
     --enable-static \
