@@ -25,7 +25,7 @@ fi
 mkdir -p _build$ndk_suffix
 cd _build$ndk_suffix
 
-../configure
+./configure
 
 make -j$cores
 make DESTDIR="$prefix_dir" install
