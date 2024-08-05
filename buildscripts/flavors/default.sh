@@ -15,21 +15,18 @@ fi
 mkdir -p _build$ndk_suffix
 cd _build$ndk_suffix
 
-cpu=armv7-a
 [[ "$ndk_triple" == "aarch64"* ]] && cpu=armv8-a
-[[ "$ndk_triple" == "x86_64"* ]] && cpu=generic
-[[ "$ndk_triple" == "i686"* ]] && cpu="i686 --disable-asm"
 
 cpuflags=
-[[ "$ndk_triple" == "arm"* ]] && cpuflags="$cpuflags -mfpu=neon -mcpu=cortex-a8"
+[[ "$ndk_triple" == "arm"* ]] && cpuflags="$cpuflags -mfpu=neon-vfpv4 -march=armv8-a"
 
 ../configure \
 	--target-os=android --enable-cross-compile --cross-prefix=$ndk_triple- --ar=$AR --cc=$CC --ranlib=$RANLIB \
 	--arch=${ndk_triple%%-*} --cpu=$cpu --pkg-config=pkg-config \
 	--extra-cflags="-I$prefix_dir/include $cpuflags" --extra-ldflags="-L$prefix_dir/lib" \
 	\
-	--disable-gpl \
-	--disable-nonfree \
+	--enable-gpl \
+	--enable-nonfree \
 	--enable-version3 \
 	--enable-static \
 	--disable-shared \

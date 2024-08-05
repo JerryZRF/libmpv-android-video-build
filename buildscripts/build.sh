@@ -19,38 +19,11 @@ loadarch () {
 	local apilvl=34
 	# ndk_triple: what the toolchain actually is
 	# cc_triple: what Google pretends the toolchain is
-	if [ "$1" == "armv7l" ]; then
-		export ndk_suffix=
-		export ndk_triple=arm-linux-androideabi
-		cc_triple=armv7a-linux-androideabi$apilvl
-		prefix_name=armeabi-v7a
-	elif [ "$1" == "arm64" ]; then
-		export ndk_suffix=-arm64
-		export ndk_triple=aarch64-linux-android
-		cc_triple=$ndk_triple$apilvl
-		prefix_name=arm64-v8a
-	elif [ "$1" == "x86" ]; then
-		export ndk_suffix=-x86
-		export ndk_triple=i686-linux-android
-		cc_triple=$ndk_triple$apilvl
-		prefix_name=x86
-	elif [ "$1" == "x86_64" ]; then
-		export ndk_suffix=-x64
-		export ndk_triple=x86_64-linux-android
-		cc_triple=$ndk_triple$apilvl
-		prefix_name=x86_64
-	else
-		echo "Invalid architecture"
-		exit 1
-	fi
-	export prefix_dir="$PWD/prefix/$prefix_name"
-	export native_dir="$PWD/../libmpv/src/main/jniLibs/$prefix_name"
-	export CC=$cc_triple-clang
-	if [[ "$1" == arm* ]]; then
-		export AS="$CC"
-	else
-		export AS="nasm"
-	fi
+	export ndk_suffix=-arm64
+	export ndk_triple=aarch64-linux-android
+	cc_triple=$ndk_triple$apilvl
+	prefix_name=arm64-v8a
+
 	export CXX=$cc_triple-clang++
 	export AR=llvm-ar
 	export RANLIB=llvm-ranlib

@@ -53,7 +53,7 @@ HEREDOC
 [ ! -d libplacebo ] && git clone --recursive --depth 1 --branch v$v_libplacebo https://code.videolan.org/videolan/libplacebo.git libplacebo
 
 # mpv
-[ ! -d mpv ] && git clone --recursive https://github.com/mpv-player/mpv.git mpv --depth 1
+[ ! -d mpv ] && git clone --recursive https://github.com/JerryZRF/mpv.git mpv --depth 1
 
 # fftools_ffi
 [ ! -d fftools_ffi ] && git clone --recursive --depth 1 --branch main https://github.com/moffatman/fftools-ffi.git fftools_ffi
