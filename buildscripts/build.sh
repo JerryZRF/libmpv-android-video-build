@@ -23,7 +23,14 @@ loadarch () {
 	export ndk_triple=aarch64-linux-android
 	cc_triple=$ndk_triple$apilvl
 	prefix_name=arm64-v8a
-
+	export prefix_dir="$PWD/prefix/$prefix_name"
+	export native_dir="$PWD/../libmpv/src/main/jniLibs/$prefix_name"
+	export CC=$cc_triple-clang
+	if [[ "$1" == arm* ]]; then
+		export AS="$CC"
+	else
+		export AS="nasm"
+	fi
 	export CXX=$cc_triple-clang++
 	export AR=llvm-ar
 	export RANLIB=llvm-ranlib
